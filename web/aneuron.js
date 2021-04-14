@@ -354,7 +354,7 @@ function draw() {
       btn_sigmoid.toggle();
     }
   }
-/*
+
   // Display images 
   image(img_threshold, width/2+80, height/2-435, 80, 80);
   image(img_sigmoid, width/2+80, height/2-335, 80, 80);
@@ -364,10 +364,10 @@ function draw() {
   textSize(20);
   textAlign(LEFT);
   fill(100);
-  String str = "output: activfunc( w_1 * x_1  + w_2 * x_2  + w_3 * x_3  - (bias) ) = y";
+  str = "output: activfunc( w_1 * x_1  + w_2 * x_2  + w_3 * x_3  - (bias) ) = y";
   text(str, width/2-400, height/2 + 300);
    
-  String str_eqn = "        ";
+  str_eqn = "        ";
   if (btn_threshold.isOn()) {
     str_eqn = str_eqn + "threshold( ";
   }
@@ -383,7 +383,6 @@ function draw() {
   str_eqn = str_eqn + nf(w_3, 1, 1) + " * " + nf(x_3, 2, 1) + " - ";
   str_eqn = str_eqn + "(" + nfs(theta, 1, 1) + ")" + " ) = " + nf(y, 1, 3);
   text(str_eqn, width/2-400, height/2 + 340);
-*/
 }
 
 // Compute values with inputs 
