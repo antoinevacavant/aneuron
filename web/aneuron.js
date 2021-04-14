@@ -400,6 +400,7 @@ function draw() {
   textSize(20);
   textAlign(LEFT);
   fill(100);
+  noStroke();
   str = "output: activfunc( w_1 * x_1  + w_2 * x_2  + w_3 * x_3  - (bias) ) = y";
   text(str, width/2-400, height/2 + 300);
    
