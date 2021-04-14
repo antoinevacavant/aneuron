@@ -148,7 +148,7 @@ function draw() {
 
   // Texts 
   fill(0);
-  //textFont(myfont, 30);
+
   textSize(30);
   textAlign(CENTER, CENTER);
   text(nf(x_1,2,1), width/2-420, height/2-150);
@@ -171,10 +171,10 @@ function draw() {
 
   text(nf(sum,1,3), width/2-80, height/2);
 
-  text(theta, width/2+40, height/2+20);
+  text(nf(theta,1,1), width/2+40, height/2+20);
   text("bias", width/2+40, height/2-100);
 
-  text(a, width/2+160, height/2);
+  text(nf(a,1,3), width/2+160, height/2);
 
   text("y", width/2+400, height/2+40);
   text(nf(y,1,3), width/2+400, height/2-40);
@@ -185,6 +185,12 @@ function draw() {
   line(width/2-350, height/2-180, width/2-200, height/2-100);
   line(width/2-350, height/2, width/2-280, height/2);
   line(width/2-350, height/2+180, width/2-200, height/2+100);
+
+  stroke(94, 204, 243);
+  line(width/2, height/2+60, width/2+80, height/2+60);
+
+  stroke(167, 234, 82);
+  line(width/2+280, height/2, width/2+360, height/2);
 
   // Draw all buttons 
   btnx1_plus.draw(this);
@@ -212,21 +218,21 @@ function draw() {
 
   // Interacts buttons for x_i
   if (btnx1_plus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_1 < limit_x-0.01)
+    if (x_1 <= limit_x)
       x_1 += step_x;
     btnx1_plus.click(true);
   } else {
     btnx1_plus.click(false);
   }
    if (btnx2_plus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_2 < limit_x)
+    if (x_2 <= limit_x)
       x_2 += step_x;
     btnx2_plus.click(true);
   } else {
     btnx2_plus.click(false);
   }
   if (btnx3_plus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_3 < limit_x)
+    if (x_3 <= limit_x)
       x_3 += step_x;
     btnx3_plus.click(true);
   } else {
@@ -235,25 +241,25 @@ function draw() {
 
 
   if (btnx1_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_1 > 0.0001)
+    if (x_1 >= 0)
       x_1 -= step_x;
-    x_1 = abs(x_1);
+    x_1 = max(x_1,0);
     btnx1_minus.click(true);
   } else {
     btnx1_minus.click(false);
   }
   if (btnx2_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_2 > 0.001)
+    if (x_2 >= 0)
       x_2 -=  step_x;
-    x_2 = abs(x_2);
+    x_2 = max(x_2,0);
     btnx2_minus.click(true);
   } else {
     btnx2_minus.click(false);
   }
   if (btnx3_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (x_3 > 0.001)
+    if (x_3 >= 0)
       x_3 -= step_x;
-    x_3 = abs(x_3);
+    x_3 = max(x_3,0);
     btnx3_minus.click(true);
   } else {
     btnx3_minus.click(false);
@@ -284,23 +290,25 @@ function draw() {
 
 
   if (btnw1_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (w_1 > 0.001)
+    if (w_1 >= 0)
       w_1 -= step_w;
-    w_1 = abs(w_1);
+    w_1 = max(w_1,0);
     btnw1_minus.click(true);
   } else {
     btnw1_minus.click(false);
   }
   if (btnw2_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (w_2 > 0.001)
+    if (w_2 >= 0)
       w_2 -=  step_w;
+    w_2 = max(w_2,0);
     btnw2_minus.click(true);
   } else {
     btnw2_minus.click(false);
   }
   if (btnw3_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (w_3 > 0.001)
+    if (w_3 >= 0)
       w_3 -= step_w;
+    w_3 = max(w_3,0);
     btnw3_minus.click(true);
   } else {
     btnw3_minus.click(false);
@@ -312,14 +320,14 @@ function draw() {
 
   // Interacts with bias 
   if (btntheta_minus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (theta > -limit_theta+0.001)
+    if (theta >= -limit_theta)
       theta -= step_theta;
     btntheta_minus.click(true);
   } else {
     btntheta_minus.click(false);
   }
   if (btntheta_plus.over(mouseX, mouseY) && mouseIsPressed) {
-    if (theta < limit_theta-0.001)
+    if (theta < limit_theta)
       theta += step_theta;
     btntheta_plus.click(true);
   } else {
@@ -354,7 +362,7 @@ function draw() {
       btn_sigmoid.toggle();
     }
   }
-/*
+
   // Display images 
   image(img_threshold, width/2+80, height/2-435, 80, 80);
   image(img_sigmoid, width/2+80, height/2-335, 80, 80);
@@ -364,10 +372,10 @@ function draw() {
   textSize(20);
   textAlign(LEFT);
   fill(100);
-  String str = "output: activfunc( w_1 * x_1  + w_2 * x_2  + w_3 * x_3  - (bias) ) = y";
+  str = "output: activfunc( w_1 * x_1  + w_2 * x_2  + w_3 * x_3  - (bias) ) = y";
   text(str, width/2-400, height/2 + 300);
    
-  String str_eqn = "        ";
+  str_eqn = "        ";
   if (btn_threshold.isOn()) {
     str_eqn = str_eqn + "threshold( ";
   }
@@ -383,7 +391,6 @@ function draw() {
   str_eqn = str_eqn + nf(w_3, 1, 1) + " * " + nf(x_3, 2, 1) + " - ";
   str_eqn = str_eqn + "(" + nfs(theta, 1, 1) + ")" + " ) = " + nf(y, 1, 3);
   text(str_eqn, width/2-400, height/2 + 340);
-*/
 }
 
 // Compute values with inputs 
