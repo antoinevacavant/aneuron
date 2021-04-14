@@ -157,20 +157,6 @@ function SimpleButton(iX, iY, iLx, iLy)  {
       app.text(this._sText, this._iPosX, this._iPosY);
     } // if (app != null)
   };
-  /*
-
-  // Move the button
-  public void move(int iX, int iY) {
-    _iPosX= iX+_iShiftX;
-    _iPosY= iY+_iShiftY;
-  }
-
-  // Resize
-  public void resize(int iLx, int iLy) {
-    _iLenX= iLx;
-    _iLenY= iLy;
-  }
-*/
 
   // Change text inside
   this.setText= function(sText) {
@@ -217,17 +203,4 @@ function SimpleButton(iX, iY, iLx, iLy)  {
   this.isOn= function() {
     return (this._bToggleButton && this._bOn);
   }
-/*
-  // Is it clicked?
-  public boolean isClicked() {
-    return _bClicked;
-  }
-
-  // Enable/Disable
-  public void enable(boolean bEnable) {
-    _bEnabled= bEnable;
-  }
-  
-  
-  */
 }
