@@ -7,5 +7,7 @@ Please feel free to suggest improvements!
 - The bin/ folder contains the binaries for Linux and Win32 / Win64
 - The web/ folder is an adaptation in JS with P5.js framework
 
+An example of the web page can be found at http://antoine.vacavant.eu/aneuron
+
 Enjoy!
 Antoine
