@@ -1,6 +1,8 @@
 # aneuron
 Software to understand artificial neuron's behavior done with Processing 3
 
+![image](https://user-images.githubusercontent.com/25974071/114822593-9a20f700-9dc2-11eb-9a87-53c00f613ea9.png)
+
 Please feel free to suggest improvements!
 
 - The .pde files describe the class for buttons and main project file
