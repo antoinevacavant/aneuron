@@ -1,7 +1,7 @@
 # aneuron
 Software to understand artificial neuron's behavior done with Processing 3
 
-![image](https://user-images.githubusercontent.com/25974071/114822593-9a20f700-9dc2-11eb-9a87-53c00f613ea9.png= 250x250)
+![image](https://user-images.githubusercontent.com/25974071/114822593-9a20f700-9dc2-11eb-9a87-53c00f613ea9.png =250x250)
 
 Please feel free to suggest improvements!
 
